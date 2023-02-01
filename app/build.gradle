@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -30,12 +32,21 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    kapt {
+        correctErrorTypes true
+    }
+    buildFeatures {
+        dataBinding true
+    }
 }
 
 dependencies {
 
     def lifecycle_version = "2.5.1"
-    def arch_version = "2.1.0"
+    def nav_version = "2.5.3"
+    def retrofitVersion = "2.9.0"
+    def loggingInterceptorVersion = "4.10.0"
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.0'
@@ -46,10 +57,27 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     implementation 'androidx.core:core-splashscreen:1.0.0'
+    implementation "androidx.activity:activity-ktx:1.6.1"
+    implementation "androidx.fragment:fragment-ktx:1.5.5"
 
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
-    implementation "androidx.activity:activity-ktx:1.6.1"
+
+    //navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //Retrofit & Gson & Logging interceptor
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+    implementation "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion"
+
+    // hilt
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-compiler:2.44"
+
+    implementation 'com.yogeshpaliyal:universal-adapter:3.0.1'
+
 
 }

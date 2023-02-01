@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">BSPL</string>
+    <string name="no_internet_connection">Please check internet connection</string>
+    <string name="default_error_message">Something goes wrong</string>
+    <string name="create_stringer">Create Stringer</string>
+    <string name="edit_stringer">Edit Stringer</string>
+    <string name="update_stringer">Update Stringer</string>
+    <string name="edit">Edit</string>
+    <string name="delete_stringer">Delete Stringer</string>
 </resources>
